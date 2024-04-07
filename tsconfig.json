@@ -24,7 +24,8 @@
     /* Aliases */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@icons": ["assets/icons/*"]
     }
   },
   "include": ["src"],
