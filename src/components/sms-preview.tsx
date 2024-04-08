@@ -59,7 +59,7 @@ const Preview = () => {
         </div>
         <TextBox className='mb-4'>{dummyText}</TextBox>
         <Button
-          className={`min-w-[150px] ${isCopied ? 'bg-green-600 hover:bg-green-700/90' : ''}`}
+          className={`min-w-[150px] ${isCopied ? 'bg-green-600 hover:bg-green-600' : ''}`}
           onClick={() => {
             handleCopy(dummyText);
           }}
