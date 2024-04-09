@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 
 type CopyFn = (text: string) => Promise<boolean>;
 
-export function useCopyToClipboard(): CopyFn {
+export const useCopyToClipboard = (): CopyFn => {
   const copy: CopyFn = useCallback(async (text) => {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (!navigator?.clipboard) {
@@ -20,4 +20,4 @@ export function useCopyToClipboard(): CopyFn {
   }, []);
 
   return copy;
-}
+};
