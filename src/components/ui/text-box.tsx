@@ -8,14 +8,14 @@ interface TextBoxProps extends ComponentPropsWithoutRef<'p'> {
 
 const TextBox = ({ className, children }: TextBoxProps) => {
   return (
-    <p
+    <pre
       className={cn(
-        'min-h-[80px] w-full cursor-text break-words rounded-md border border-neutral-300 bg-background px-3 py-2 text-sm lg:text-lg',
+        'min-h-[80px] w-full cursor-text whitespace-pre-wrap break-words rounded-md border border-neutral-300 bg-background px-3 py-2 font-inter text-sm lg:text-lg',
         className
       )}
     >
       {children}
-    </p>
+    </pre>
   );
 };
 
