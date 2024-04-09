@@ -5,25 +5,35 @@ import Separator from './ui/separator';
 import TextBox from './ui/text-box';
 
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
+import { Text } from '@/types';
 
 import doneIcon from '@icons/done.png';
 import greatBritainIcon from '@icons/gb.png';
 import sparklesIcon from '@icons/sparkles.png';
 import ukraineIcon from '@icons/ua.png';
 
-const dummyText =
-  'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, incidunt ratione non reprehenderit deleniti rem vitae optio nihil. Vel sit accusamus ad accusantium ducimus. Eos ipsam laudantium nisi soluta illo? Eligendi quo amet aspernatur pariatur doloribus saepe repellendus delectus quaerat illum vitae. Cupiditate ipsam eum amet quasi. Id, officiis. Delectus harum doloribus, adipisci nisi soluta ipsa quam velit ab cumque!';
+interface PreviewProps {
+  message?: Pick<Text, Alphabet>;
+}
+type Alphabet = 'cyrillic' | 'latin';
 
-const Preview = () => {
+const INITIAL_MESSAGE = {
+  cyrillic: 'Оберіть шаблон повідомлення.',
+  latin: 'Oberit shablon povidomlennia.',
+};
+
+const Preview = ({ message = INITIAL_MESSAGE }: PreviewProps) => {
   const [isCopied, setIsCopied] = useState(false);
+  const [alphabet, setAlphabet] = useState<Alphabet>('latin');
   const copy = useCopyToClipboard();
 
   const handleCopy = (text: string) => {
     if (isCopied) {
       return;
     }
+    const formattedText = text.replace(/\n\n|\n/g, ' ');
 
-    copy(text)
+    copy(formattedText)
       .then(() => {
         setIsCopied(true);
 
@@ -32,7 +42,7 @@ const Preview = () => {
         }, 1500);
       })
       .catch(() => {
-        alert('Failed to copy!');
+        alert('Виникла помилка 😔');
       });
   };
 
@@ -42,7 +52,12 @@ const Preview = () => {
         <div className='flex justify-between p-1'>
           <h3 className='self-center text-base font-medium lg:text-lg'>Повідомлення</h3>
           <span className='flex flex-shrink-0 gap-2'>
-            <button className='text-[0px]'>
+            <button
+              className='text-[0px]'
+              onClick={() => {
+                setAlphabet('latin');
+              }}
+            >
               <img
                 className='h-7 w-7'
                 src={greatBritainIcon}
@@ -51,17 +66,22 @@ const Preview = () => {
               Вибрати англійську мову
             </button>
             <Separator className='bg-neutral-300' orientation='vertical' />
-            <button className='text-[0px]'>
+            <button
+              className='text-[0px]'
+              onClick={() => {
+                setAlphabet('cyrillic');
+              }}
+            >
               <img className='h-7 w-7' src={ukraineIcon} alt='Прапор України' />
               Вибрати українську мову
             </button>
           </span>
         </div>
-        <TextBox className='mb-4'>{dummyText}</TextBox>
+        <TextBox className='mb-4'>{message[alphabet]}</TextBox>
         <Button
           className={`min-w-[150px] ${isCopied ? 'bg-green-600 hover:bg-green-600' : ''}`}
           onClick={() => {
-            handleCopy(dummyText);
+            handleCopy(message[alphabet]);
           }}
         >
           {isCopied ? 'Скопійовано!' : 'Скопіювати'}
