@@ -5,26 +5,17 @@ import Separator from './ui/separator';
 import TextBox from './ui/text-box';
 
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
-import { Text } from '@/types';
+import { useMessageReducer } from '@/hooks/useMessageReducer';
 
 import doneIcon from '@icons/done.png';
 import greatBritainIcon from '@icons/gb.png';
 import sparklesIcon from '@icons/sparkles.png';
 import ukraineIcon from '@icons/ua.png';
 
-interface PreviewProps {
-  message?: Pick<Text, Alphabet>;
-}
-type Alphabet = 'cyrillic' | 'latin';
-
-const INITIAL_MESSAGE = {
-  cyrillic: 'Оберіть шаблон повідомлення.',
-  latin: 'Oberit shablon povidomlennia.',
-};
-
-const Preview = ({ message = INITIAL_MESSAGE }: PreviewProps) => {
+const Preview = () => {
   const [isCopied, setIsCopied] = useState(false);
-  const [alphabet, setAlphabet] = useState<Alphabet>('latin');
+  const [alphabet, setAlphabet] = useState<'cyrillic' | 'latin'>('latin');
+  const { state: message } = useMessageReducer();
   const copy = useCopyToClipboard();
 
   const handleCopy = (text: string) => {

@@ -4,7 +4,7 @@
     "text": {
       "cyrillic": "Вас вітає termincin.com.\n\nВам необхідно відправити товар Новою Поштою на реквізити, що вказані в формі.\n\nТакож просимо заповнити електронну форму за посиланням нижче:\nhttps://docs.google.com/forms/d/e/1FAIpQLSebmPy8aoSJtGw57YgD5klUIztsNqMmQk1Jzw8qrb_coPqxng/viewform",
       "latin": "Vas vitaie termincin.com.\n\nVam neobkhidno vidpravyty tovar Novoiu Poshtoiu na rekvizyty, shcho vkazani v formi.\n\nTakozh prokhannia zapovnyty elektronnu formu za posylanniam nyzhche:\nhttps://docs.google.com/forms/d/e/1FAIpQLSebmPy8aoSJtGw57YgD5klUIztsNqMmQk1Jzw8qrb_coPqxng/viewform",
-      "possibleRefunds": false,
+      "possibleRefund": false,
       "haveOrderNumber": false,
       "needToPay": false
     }
@@ -14,7 +14,7 @@
     "text": {
       "cyrillic": "Вас вітає termincin.com.\n\nВам необхідно відправити товар Новою Поштою з доставкою за наш рахунок через безготівковий розрахунок (це важливо!) на реквізити, що вказані в формі за посиланням.\n\nТакож просимо заповнити електронну форму за посиланням нижче:\nhttps://docs.google.com/forms/d/e/1FAIpQLSebmPy8aoSJtGw57YgD5klUIztsNqMmQk1Jzw8qrb_coPqxng/viewform",
       "latin": "Vas vitaie termincin.com.\n\nVam neobkhidno vidpravyty tovar Novoiu Poshtoiu z dostavkoiu za nash rakhunok cherez bezghotivkovyi rozrakhunok (tse vazhlyvo!) na rekvizyty, shcho vkazani v formi za posylanniam.\n\nTakozh prokhannia zapovnyty elektronnu formu za posylanniam nyzhche:\nhttps://docs.google.com/forms/d/e/1FAIpQLSebmPy8aoSJtGw57YgD5klUIztsNqMmQk1Jzw8qrb_coPqxng/viewform",
-      "possibleRefunds": false,
+      "possibleRefund": false,
       "haveOrderNumber": false,
       "needToPay": false
     }
@@ -24,7 +24,7 @@
     "text": {
       "cyrillic": "Вас вітає termincin.com.\n\nНадсилаємо посилання на оплату замовлення №...:\n",
       "latin": "Vas vitaie termincin.com.\n\nNadsylaiemo posylannia na oplatu zamovlenniа №...:\n",
-      "possibleRefunds": false,
+      "possibleRefund": false,
       "haveOrderNumber": true,
       "needToPay": true
     }
@@ -34,7 +34,7 @@
     "text": {
       "cyrillic": "Вас вітає termincin.com.\n\nНажаль не отримали оплату по Вашому замовленні №....\n\nПосилання для оплати:\n",
       "latin": "Vas vitaie termincin.com.\n\nNazhal ne otrymaly oplatu po Vashomu zamovlenniu №....\n\nPosylannia dlia oplaty:\n",
-      "possibleRefunds": false,
+      "possibleRefund": false,
       "haveOrderNumber": true,
       "needToPay": true
     }
@@ -42,9 +42,9 @@
   {
     "name": "Немає окремого товару в наявності",
     "text": {
-      "cyrillic": "Вас турбує termincin.com стосовно замовлення №.... На жаль, немає в наявності деяких товарів.\n\nА саме:\nПарасолька чоловіча 840 (2000903605997A)\n\nВсе інше з Вашого замовлення буде надіслано.",
-      "latin": "Vas turbuie termincin.com stosovno zamovlennia №.... Na zhal, nemaie v naiavnosti deiakykh tovariv.\n\nA same:\nParasolka cholovicha 840 (2000903605997A)\n\nVse inshe z Vashoho zamovlennia bude nadislano.",
-      "possibleRefunds": true,
+      "cyrillic": "Вас турбує termincin.com стосовно замовлення №.... На жаль, немає в наявності деяких товарів.\n\nА саме:\nПарасолька чоловіча 840 (2000903605997A)\n\nВсе інше з Вашого замовлення буде надіслано.\n\nПерепрошуємо за незручності, гарного дня!",
+      "latin": "Vas turbuie termincin.com stosovno zamovlennia №.... Na zhal, nemaie v naiavnosti deiakykh tovariv.\n\nA same:\nParasolka cholovicha 840 (2000903605997A)\n\nVse inshe z Vashoho zamovlennia bude nadislano.\n\nPereproshuiemo za nezruchnosti, harnoho dnia!",
+      "possibleRefund": true,
       "haveOrderNumber": true,
       "needToPay": false
     }
@@ -52,9 +52,9 @@
   {
     "name": "Повністю немає в наявності (скасування)",
     "text": {
-      "cyrillic": "Вас турбує termincin.com стосовно замовлення №....\n\nНа жаль, обраного Вами товару немає в наявності, тому ми змушені скасувати замовлення.",
-      "latin": "Vas turbuie termincin.com stosovno zamovlennia №....\n\nNa zhal, obranoho Vamy tovaru nemaie v naiavnosti, tomu my zmusheni skasuvaty zamovlennia.",
-      "possibleRefunds": true,
+      "cyrillic": "Вас турбує termincin.com стосовно замовлення №....\n\nНа жаль, обраного Вами товару немає в наявності, тому ми змушені скасувати замовлення.\n\nПерепрошуємо за незручності, гарного дня!",
+      "latin": "Vas turbuie termincin.com stosovno zamovlennia №....\n\nNa zhal, obranoho Vamy tovaru nemaie v naiavnosti, tomu my zmusheni skasuvaty zamovlennia.\n\nPereproshuiemo za nezruchnosti, harnoho dnia!",
+      "possibleRefund": true,
       "haveOrderNumber": true,
       "needToPay": false
     }
@@ -62,9 +62,9 @@
   {
     "name": "Не змогли додзвонитися (скасування)",
     "text": {
-      "cyrillic": "Вас турбує termincin.com стосовно замовлення №....\n\nНа жаль, не змогли Вам додзвонитися для уточнення по замовленню, тому змушені його скасувати.",
-      "latin": "Vas turbuie termincin.com stosovno zamovlennia №....\n\nNa zhal, ne zmohly Vam dodzvonytysia dlia utochnennia po zamovlenniu, tomu zmusheni ioho skasuvaty.",
-      "possibleRefunds": true,
+      "cyrillic": "Вас турбує termincin.com стосовно замовлення №....\n\nНа жаль, не змогли Вам додзвонитися для уточнення по замовленню, тому змушені його скасувати.\n\nПерепрошуємо за незручності, гарного дня!",
+      "latin": "Vas turbuie termincin.com stosovno zamovlennia №....\n\nNa zhal, ne zmohly Vam dodzvonytysia dlia utochnennia po zamovlenniu, tomu zmusheni ioho skasuvaty.\n\nPereproshuiemo za nezruchnosti, harnoho dnia!",
+      "possibleRefund": true,
       "haveOrderNumber": true,
       "needToPay": false
     }
@@ -74,7 +74,7 @@
     "text": {
       "cyrillic": "Вас турбує termincin.com стосовно замовлення №....\n\nПри оформленні замовлення оплата, на жаль, не пройшла.\n\nОформіть, будь ласка, повторне замовлення в нас на сайті та спробуйте оплатити ще раз або вказати \"післяплата\".",
       "latin": "Vas turbuye termincin.com stosovno zamovlennya №....\n\nPri oformlenni zamovlennya oplata, na zhal, ne projshla.\n\nOformit, bud laska, povtorno zamovlennya v nas na sajti ta sprobujte oplatiti she raz abo vkazati \"pislyaplata\".",
-      "possibleRefunds": false,
+      "possibleRefund": false,
       "haveOrderNumber": true,
       "needToPay": false
     }
@@ -84,7 +84,7 @@
     "text": {
       "cyrillic": "Вас турбує termincin.com стосовно замовлення №....\n\nНа жаль, товару немає в наявності, в обраному Вами магазині, але пропонуємо Вам оформити доставку поштою зі знижкою 10% на товар за промокодом \"tmcwow\".\n\nПерепрошуємо за незручності, гарного дня!",
       "latin": "Vas turbuye termincin.com stosovno zamovlennya №....\n\nNa zhal, tovaru nemaye v nayavnosti, v obranomu Vami magazini, ale proponuyemo Vam oformiti dostavku poshtoyu zi znizhkoyu 10% na  tovar za promokodom \"tmcwow\".\n\nPereproshuiemo za nezruchnosti, harnoho dnia!",
-      "possibleRefunds": true,
+      "possibleRefund": true,
       "haveOrderNumber": true,
       "needToPay": false
     }
