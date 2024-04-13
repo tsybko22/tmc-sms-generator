@@ -1,5 +1,11 @@
 import { useState } from 'react';
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 import { Button } from './ui/button';
 import Separator from './ui/separator';
 import TextBox from './ui/text-box';
@@ -11,10 +17,11 @@ import doneIcon from '@icons/done.png';
 import greatBritainIcon from '@icons/gb.png';
 import sparklesIcon from '@icons/sparkles.png';
 import ukraineIcon from '@icons/ua.png';
+import { Info } from 'lucide-react';
 
 const Preview = () => {
   const [isCopied, setIsCopied] = useState(false);
-  const [alphabet, setAlphabet] = useState<'cyrillic' | 'latin'>('latin');
+  const [alphabet, setAlphabet] = useState<'cyrillic' | 'latin'>('cyrillic');
   const { message } = useMessageStore();
   const copy = useCopyToClipboard();
 
@@ -42,7 +49,7 @@ const Preview = () => {
       <div className='w-full max-w-[600px]'>
         <div className='flex justify-between p-1'>
           <h3 className='self-center text-base font-medium lg:text-lg'>Повідомлення</h3>
-          <span className='flex flex-shrink-0 gap-2'>
+          <span className='flex flex-shrink-0 items-center gap-2'>
             <button
               className='text-[0px]'
               onClick={() => {
@@ -66,13 +73,30 @@ const Preview = () => {
               <img className='h-7 w-7' src={ukraineIcon} alt='Прапор України' />
               Вибрати українську мову
             </button>
+            <TooltipProvider delayDuration={150}>
+              <Tooltip>
+                <TooltipTrigger>
+                  <Info className='h-5 w-5 opacity-40' />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>
+                    <strong>Це не перекладач.</strong>
+                    <br />
+                    Ця функція лише для того, щоб повідомлення було зручніше читати.
+                    <br />
+                    Якщо текст буде українською, то скопійований текст все одно буде
+                    транслітом.
+                  </p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </span>
         </div>
         <TextBox className='mb-4'>{message.text[alphabet]}</TextBox>
         <Button
           className={`min-w-[150px] ${isCopied ? 'bg-green-600 hover:bg-green-600' : ''}`}
           onClick={() => {
-            handleCopy(message.text[alphabet]);
+            handleCopy(message.text.latin);
           }}
         >
           {isCopied ? 'Скопійовано!' : 'Скопіювати'}
