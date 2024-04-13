@@ -36,12 +36,12 @@ const Editor = () => {
       <h2 className='text-2xl font-semibold tracking-tight md:text-3xl lg:text-4xl'>
         Конструктор
       </h2>
-      <p className='mb-5 mt-3 flex items-center gap-2 text-base leading-7 lg:text-lg'>
-        <img className='h-7 w-7' src={stepOneIcon} alt='Зображення цифри 1' /> Оберіть
-        необхідний шаблон в меню знизу (працює пошук по словам).
+      <p className='mb-5 mt-7 flex items-center gap-2 text-base leading-7 lg:text-lg'>
+        <img className='h-7 w-7' src={stepOneIcon} alt='Зображення цифри 1' />
+        Оберіть необхідний шаблон в меню знизу (працює пошук по словам):
       </p>
       <ComboBox options={options} value={currentOption} setValue={setCurrentOption} />
-      <EditorForm message={currentMessage} />
+      {currentMessage && <EditorForm message={currentMessage} />}
     </section>
   );
 };
