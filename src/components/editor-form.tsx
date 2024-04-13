@@ -1,23 +1,26 @@
-/* eslint-disable @typescript-eslint/no-unnecessary-condition */
+import { useMessageStore } from '@/hooks/useMessageStore';
 import { type Message } from '@/types';
+import { editMessage } from '@/utils';
 import { useEffect, useState } from 'react';
 
-import { Checkbox } from './ui/checkbox';
-import { Input } from './ui/input';
-import { Label } from './ui/label';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from './ui/select';
-import { Textarea } from './ui/textarea';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
+} from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
-import { useMessageStore } from '@/hooks/useMessageStore';
-
-import { editMessage } from '@/utils';
 import stepTwoIcon from '@icons/step2.png';
 import stepThreeIcon from '@icons/step3.png';
 import { Info } from 'lucide-react';

@@ -1,11 +1,11 @@
-import { useEffect, useMemo, useState } from 'react';
-
-import ComboBox, { type ComboBoxOption } from './combobox';
-import EditorForm from './editor-form';
-
-import data from '@/data/sms.json';
 import { useMessageStore } from '@/hooks/useMessageStore';
 import { Message } from '@/types';
+import { useEffect, useMemo, useState } from 'react';
+
+import ComboBox, { type ComboBoxOption } from '@/components/combobox';
+import EditorForm from '@/components/editor-form';
+
+import data from '@/data/sms.json';
 import stepOneIcon from '@icons/step1.png';
 
 const Editor = () => {

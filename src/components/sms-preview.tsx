@@ -1,19 +1,18 @@
+import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
+import { useMessageStore } from '@/hooks/useMessageStore';
+import { type Text } from '@/types';
 import { useState } from 'react';
 
+import { Button } from '@/components/ui/button';
+import Separator from '@/components/ui/separator';
+import TextBox from '@/components/ui/text-box';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
-import { Button } from './ui/button';
-import Separator from './ui/separator';
-import TextBox from './ui/text-box';
 
-import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
-import { useMessageStore } from '@/hooks/useMessageStore';
-
-import { Text } from '@/types';
 import doneIcon from '@icons/done.png';
 import greatBritainIcon from '@icons/gb.png';
 import sparklesIcon from '@icons/sparkles.png';

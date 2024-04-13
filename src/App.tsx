@@ -1,6 +1,6 @@
-import Header from './components/header';
-import Editor from './components/sms-editor';
-import Preview from './components/sms-preview';
+import Header from '@/components/header';
+import Editor from '@/components/sms-editor';
+import Preview from '@/components/sms-preview';
 
 const App = () => {
   return (
