@@ -13,6 +13,7 @@ import TextBox from './ui/text-box';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import { useMessageStore } from '@/hooks/useMessageStore';
 
+import { Text } from '@/types';
 import doneIcon from '@icons/done.png';
 import greatBritainIcon from '@icons/gb.png';
 import sparklesIcon from '@icons/sparkles.png';
@@ -23,6 +24,10 @@ const Preview = () => {
   const [isCopied, setIsCopied] = useState(false);
   const [alphabet, setAlphabet] = useState<'cyrillic' | 'latin'>('cyrillic');
   const { message } = useMessageStore();
+  const formattedMessage: Text = {
+    cyrillic: message.text.cyrillic.replace(/\{.*?\}/g, ''),
+    latin: message.text.latin.replace(/\{.*?\}/g, ''),
+  };
   const copy = useCopyToClipboard();
 
   const handleCopy = (text: string) => {
@@ -86,17 +91,22 @@ const Preview = () => {
                     <br />
                     Якщо текст буде українською, то скопійований текст все одно буде
                     транслітом.
+                    <br />
+                    <i>
+                      Текст копіюється відформатованим, тобто всі відступи між фразами
+                      прибираються.
+                    </i>
                   </p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
           </span>
         </div>
-        <TextBox className='mb-4'>{message.text[alphabet]}</TextBox>
+        <TextBox className='mb-4'>{formattedMessage[alphabet]}</TextBox>
         <Button
           className={`min-w-[150px] ${isCopied ? 'bg-green-600 hover:bg-green-600' : ''}`}
           onClick={() => {
-            handleCopy(message.text.latin);
+            handleCopy(formattedMessage.latin);
           }}
         >
           {isCopied ? 'Скопійовано!' : 'Скопіювати'}
