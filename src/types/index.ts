@@ -9,4 +9,5 @@ export interface Text {
   possibleRefund?: boolean;
   haveOrderNumber?: boolean;
   needToPay?: boolean;
+  haveProductList?: boolean;
 }
