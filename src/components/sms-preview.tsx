@@ -5,7 +5,7 @@ import Separator from './ui/separator';
 import TextBox from './ui/text-box';
 
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
-import { useMessageReducer } from '@/hooks/useMessageReducer';
+import { useMessageStore } from '@/hooks/useMessageStore';
 
 import doneIcon from '@icons/done.png';
 import greatBritainIcon from '@icons/gb.png';
@@ -15,7 +15,7 @@ import ukraineIcon from '@icons/ua.png';
 const Preview = () => {
   const [isCopied, setIsCopied] = useState(false);
   const [alphabet, setAlphabet] = useState<'cyrillic' | 'latin'>('latin');
-  const { state: message } = useMessageReducer();
+  const { message } = useMessageStore();
   const copy = useCopyToClipboard();
 
   const handleCopy = (text: string) => {
@@ -68,11 +68,11 @@ const Preview = () => {
             </button>
           </span>
         </div>
-        <TextBox className='mb-4'>{message[alphabet]}</TextBox>
+        <TextBox className='mb-4'>{message.text[alphabet]}</TextBox>
         <Button
           className={`min-w-[150px] ${isCopied ? 'bg-green-600 hover:bg-green-600' : ''}`}
           onClick={() => {
-            handleCopy(message[alphabet]);
+            handleCopy(message.text[alphabet]);
           }}
         >
           {isCopied ? 'Скопійовано!' : 'Скопіювати'}

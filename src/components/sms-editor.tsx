@@ -1,7 +1,47 @@
+import { useEffect, useMemo, useState } from 'react';
+
+import ComboBox, { type ComboBoxOption } from './combobox';
+import EditorForm from './editor-form';
+
+import data from '@/data/sms.json';
+import { useMessageStore } from '@/hooks/useMessageStore';
+import { Message } from '@/types';
+import stepOneIcon from '@icons/step1.png';
+
 const Editor = () => {
+  const { setMessage, resetMessage } = useMessageStore();
+  const [currentOption, setCurrentOption] = useState<string | null>(null);
+  const options: ComboBoxOption[] = useMemo(
+    () =>
+      data.reduce<ComboBoxOption[]>((acc, item) => {
+        acc.push({ label: item.name, value: item.name });
+        return acc;
+      }, []),
+    []
+  );
+  const currentMessage: Message | undefined = data.find(
+    (message) => message.name === currentOption
+  );
+
+  useEffect(() => {
+    if (currentMessage) {
+      setMessage(currentMessage);
+    } else {
+      resetMessage();
+    }
+  }, [currentMessage, resetMessage, setMessage]);
+
   return (
-    <section className='custom-scrollbar bg-white p-5 lg:max-h-[calc(100vh-96px)] lg:overflow-y-scroll'>
-      SMS Editor
+    <section className='custom-scrollbar flex flex-col items-center bg-white p-5 lg:max-h-[calc(100vh-96px)] lg:items-start lg:overflow-y-scroll lg:p-10'>
+      <h2 className='text-2xl font-semibold tracking-tight md:text-3xl lg:text-4xl'>
+        Конструктор
+      </h2>
+      <p className='mb-5 mt-3 flex items-center gap-2 text-base leading-7 lg:text-lg'>
+        <img className='h-7 w-7' src={stepOneIcon} alt='Зображення цифри 1' /> Оберіть
+        необхідний шаблон в меню знизу (працює пошук по словам).
+      </p>
+      <ComboBox options={options} value={currentOption} setValue={setCurrentOption} />
+      <EditorForm message={currentMessage} />
     </section>
   );
 };

@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/utils';
 
 interface TextBoxProps extends ComponentPropsWithoutRef<'p'> {
   children?: ReactNode;
