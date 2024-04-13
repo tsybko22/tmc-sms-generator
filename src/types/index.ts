@@ -6,7 +6,7 @@ export interface Message {
 export interface Text {
   cyrillic: string;
   latin: string;
-  possibleRefund: boolean;
-  haveOrderNumber: boolean;
-  needToPay: boolean;
+  possibleRefund?: boolean;
+  haveOrderNumber?: boolean;
+  needToPay?: boolean;
 }
