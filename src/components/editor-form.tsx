@@ -137,7 +137,7 @@ const EditorForm = ({ message }: EditorFormProps) => {
       <fieldset className='space-y-5'>
         <legend className='flex items-center gap-2 text-base leading-7 lg:text-lg'>
           <img className='h-7 w-7' src={stepTwoIcon} alt='Зображення цифри 2' />
-          Оберіть назву магазину під виглядом якого треба відправити повідомлення:
+          Оберіть назву магазина під виглядом якого треба відправити повідомлення:
         </legend>
         <Select
           value={formData.storeName}
