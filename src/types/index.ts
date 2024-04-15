@@ -11,3 +11,16 @@ export interface Text {
   needToPay?: boolean;
   haveProductList?: boolean;
 }
+
+export interface FormOption {
+  value: string;
+  label: string;
+}
+
+export interface FormFields {
+  storeName: string;
+  orderNumber: string;
+  needToRefund: boolean;
+  paymentLink: string;
+  productList: string;
+}

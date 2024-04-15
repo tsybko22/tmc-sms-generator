@@ -1,8 +1,8 @@
 import { useMessageStore } from '@/hooks/useMessageStore';
-import { Message } from '@/types';
+import { type FormOption, type Message } from '@/types';
 import { useEffect, useMemo, useState } from 'react';
 
-import ComboBox, { type ComboBoxOption } from '@/components/combobox';
+import ComboBox from '@/components/combobox';
 import EditorForm from '@/components/editor-form';
 
 import data from '@/data/sms.json';
@@ -11,9 +11,9 @@ import stepOneIcon from '@icons/step1.png';
 const Editor = () => {
   const { setMessage, resetMessage } = useMessageStore();
   const [currentOption, setCurrentOption] = useState<string | null>(null);
-  const options: ComboBoxOption[] = useMemo(
+  const options: FormOption[] = useMemo(
     () =>
-      data.reduce<ComboBoxOption[]>((acc, item) => {
+      data.reduce<FormOption[]>((acc, item) => {
         acc.push({ label: item.name, value: item.name });
         return acc;
       }, []),

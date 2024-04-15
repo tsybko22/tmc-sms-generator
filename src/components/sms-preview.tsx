@@ -20,9 +20,10 @@ import ukraineIcon from '@icons/ua.png';
 import { Info } from 'lucide-react';
 
 const Preview = () => {
-  const [isCopied, setIsCopied] = useState(false);
+  const [isCopied, setIsCopied] = useState<boolean>(false);
   const [alphabet, setAlphabet] = useState<'cyrillic' | 'latin'>('cyrillic');
   const { message } = useMessageStore();
+  //Removes prepared places for inserting information so that the client cannot see them
   const formattedMessage: Text = {
     cyrillic: message.text.cyrillic.replace(/\{.*?\}/g, ''),
     latin: message.text.latin.replace(/\{.*?\}/g, ''),
