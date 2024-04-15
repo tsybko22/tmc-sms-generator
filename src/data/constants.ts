@@ -1,4 +1,5 @@
-import { type FormFields, type FormOption, type Message } from '@/types';
+import { type FormFields } from '@/hooks/useMessageForm';
+import { type FormOption, type Message } from '@/types';
 
 export const INITIAL_STATE: Message = {
   name: 'Шаблон',

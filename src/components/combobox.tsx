@@ -1,4 +1,3 @@
-import { cn } from '@/utils';
 import { useState, type Dispatch, type SetStateAction } from 'react';
 
 import { Button } from '@/components/ui/button';
@@ -11,6 +10,8 @@ import {
   CommandList,
 } from '@/components/ui/command';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+
+import { cn } from '@/utils';
 
 import { Check, ChevronsUpDown } from 'lucide-react';
 

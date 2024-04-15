@@ -1,7 +1,8 @@
+import { useState } from 'react';
+
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import { useMessageStore } from '@/hooks/useMessageStore';
 import { type Text } from '@/types';
-import { useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import Separator from '@/components/ui/separator';
