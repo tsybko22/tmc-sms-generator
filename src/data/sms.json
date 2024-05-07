@@ -25,7 +25,7 @@
   {
     "name": "Немає оплати та посилання на оплату",
     "text": {
-      "cyrillic": "Вас вітає {STORE_NAME}.\n\nНажаль не отримали оплату по Вашому замовленні №{ORDER_NUMBER}.\n\nПосилання для оплати:\n{PAYMENT_LINK}",
+      "cyrillic": "Вас вітає {STORE_NAME}.\n\nНажаль не отримали оплату по Вашому замовленню №{ORDER_NUMBER}.\n\nПосилання для оплати:\n{PAYMENT_LINK}",
       "latin": "Vas vitaie {STORE_NAME}.\n\nNazhal ne otrymaly oplatu po Vashomu zamovlenniu №{ORDER_NUMBER}.\n\nPosylannia dlia oplaty:\n{PAYMENT_LINK}",
       "haveOrderNumber": true,
       "needToPay": true
