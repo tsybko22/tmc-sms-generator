@@ -25,17 +25,7 @@ const ProductListField = ({ value, onChange }: ProductListFieldProps) => (
           </TooltipTrigger>
           <TooltipContent>
             <p>
-              <strong>Тільки в вигляді транслітерації!</strong>
-              <br />
-              Ось державний сайт для транслітерації:{' '}
-              <a
-                className='text-blue-500 underline'
-                href='https://czo.gov.ua/translit'
-                target='_blank'
-                rel='noreferrer'
-              >
-                посилання
-              </a>
+              Працює автоматична транслітерація <strong>тільки</strong> з української!
             </p>
           </TooltipContent>
         </Tooltip>
@@ -44,7 +34,7 @@ const ProductListField = ({ value, onChange }: ProductListFieldProps) => (
     <Textarea
       id='product-list'
       className='min-h-[120px] resize-none'
-      placeholder='Parasolka cholovicha 840 (2000903605997A),&#10;Krosivky cholovichi Gipanis VS-991 41 Chornyi (2000990521002D),&#10;Miach voleibolnyi MEIDA M500-14 Rozhevyi (2002011531427)'
+      placeholder='Парасолька чоловіча 840 (2000903605997A),&#10;Кросівки чоловічі Gipanis VS-991 41 Чорний (2000990521002D),&#10;М&#39;яч волейбольний MEIDA M500-14 Рожевий (2002011531427)'
       value={value}
       onChange={onChange}
     />

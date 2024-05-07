@@ -4,7 +4,7 @@ import { INITIAL_FORM_STATE } from '@/data/constants';
 import { useMessageStore } from '@/hooks/useMessageStore';
 import { type Message } from '@/types';
 
-import { editMessage } from '@/utils';
+import { editMessage, transliterateUkrToEng } from '@/utils';
 
 export interface FormFields {
   storeName: string;
@@ -69,7 +69,7 @@ export const useMessageForm = (message: Message): FormState => {
       editedLatin = editMessage(
         editedLatin,
         '{PRODUCT_LIST}',
-        formData.productList.replace(/\n/g, ', ')
+        transliterateUkrToEng(formData.productList.replace(/\n/g, ', '))
       );
     }
 
