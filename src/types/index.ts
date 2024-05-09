@@ -10,9 +10,16 @@ export interface Text {
   haveOrderNumber?: boolean;
   needToPay?: boolean;
   haveProductList?: boolean;
+  haveAltList?: boolean;
 }
 
 export interface FormOption {
   value: string;
   label: string;
+}
+
+export interface IsGdResponse {
+  shorturl?: string;
+  errorcode?: number;
+  errormessage?: string;
 }

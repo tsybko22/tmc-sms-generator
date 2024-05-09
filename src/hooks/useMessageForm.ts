@@ -4,7 +4,7 @@ import { INITIAL_FORM_STATE } from '@/data/constants';
 import { useMessageStore } from '@/hooks/useMessageStore';
 import { type Message } from '@/types';
 
-import { editMessage, transliterateUkrToEng } from '@/utils';
+import { editMessage, shortenUrlList, transliterateUkrToEng } from '@/utils';
 
 export interface FormFields {
   storeName: string;
@@ -12,6 +12,7 @@ export interface FormFields {
   needToRefund: boolean;
   paymentLink: string;
   productList: string;
+  altList: string;
 }
 
 type FormState = [
@@ -24,7 +25,7 @@ export const useMessageForm = (message: Message): FormState => {
   const [formData, setFormData] = useState<FormFields>(INITIAL_FORM_STATE);
   const { setMessage } = useMessageStore();
 
-  const handleFormChange = () => {
+  const handleFormChange = async () => {
     let editedCyrillic = text.cyrillic;
     let editedLatin = text.latin;
 
@@ -72,6 +73,12 @@ export const useMessageForm = (message: Message): FormState => {
         transliterateUkrToEng(formData.productList.replace(/\n/g, ', '))
       );
     }
+    if (formData.altList) {
+      const shortenedUrls = await shortenUrlList(formData.altList);
+
+      editedCyrillic = editMessage(editedCyrillic, '{ALT_LIST}', shortenedUrls);
+      editedLatin = editMessage(editedLatin, '{ALT_LIST}', shortenedUrls);
+    }
 
     const editedMessage = {
       ...message,
@@ -84,19 +91,17 @@ export const useMessageForm = (message: Message): FormState => {
     setMessage(editedMessage);
   };
 
+  const resetFormData = () => {
+    setFormData(INITIAL_FORM_STATE);
+  };
+
   useEffect(() => {
-    setFormData({
-      storeName: 'termincin.com',
-      orderNumber: '',
-      needToRefund: false,
-      paymentLink: '',
-      productList: '',
-    });
+    resetFormData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [message]);
 
   useEffect(() => {
-    handleFormChange();
+    void handleFormChange();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formData]);
 

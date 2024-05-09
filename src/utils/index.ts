@@ -1,3 +1,4 @@
+import { type IsGdResponse } from '@/types';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -11,7 +12,7 @@ export const editMessage = (
   replaceValue: string
 ): string => message.replace(new RegExp(searchValue, 'g'), replaceValue);
 
-export function transliterateUkrToEng(text: string): string {
+export const transliterateUkrToEng = (text: string): string => {
   const TRULESP: { [key: string]: string } = { ЗГ: 'ZgH', Зг: 'Zgh', зг: 'zgh' };
   const TRULESB: { [key: string]: string } = {
     Є: 'Ye',
@@ -106,4 +107,38 @@ export function transliterateUkrToEng(text: string): string {
     (x) => TRULES[x]
   );
   return str;
-}
+};
+
+export const shortenUrl = async (longUrl: string): Promise<string> => {
+  const apiUrl = `https://is.gd/create.php?format=json&url=${encodeURIComponent(longUrl)}`;
+
+  try {
+    const response = await fetch(apiUrl);
+    const data = (await response.json()) as IsGdResponse;
+    if (data.shorturl) {
+      return data.shorturl;
+    } else {
+      throw new Error('Failed to shorten URL');
+    }
+  } catch (error) {
+    console.error('Error shortening URL:', error);
+    throw new Error('Failed to shorten URL');
+  }
+};
+
+export const shortenUrlList = async (urlList: string): Promise<string> => {
+  const urls = urlList.split(',');
+  const shortUrls: string[] = [];
+
+  for (const url of urls) {
+    try {
+      const shortUrl = await shortenUrl(url.trim());
+      shortUrls.push(shortUrl);
+    } catch (error) {
+      console.error('Error shortening URL:', error);
+      shortUrls.push('');
+    }
+  }
+
+  return shortUrls.join(', ');
+};

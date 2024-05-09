@@ -1,6 +1,7 @@
 import { useMessageForm } from '@/hooks/useMessageForm';
 import { type Message } from '@/types';
 
+import AltListField from '@/components/alt-list-field';
 import OrderNumberField from '@/components/order-number-field';
 import PaymentLinkField from '@/components/payment-link-field';
 import ProductListField from '@/components/product-list-field';
@@ -80,6 +81,14 @@ const EditorForm = ({ message }: EditorFormProps) => {
               value={formData.productList}
               onChange={(evt) => {
                 setFormData({ ...formData, productList: evt.target.value });
+              }}
+            />
+          )}
+          {text.haveAltList && (
+            <AltListField
+              value={formData.altList}
+              onChange={(evt) => {
+                setFormData({ ...formData, altList: evt.target.value });
               }}
             />
           )}

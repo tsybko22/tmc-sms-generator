@@ -14,6 +14,14 @@
     }
   },
   {
+    "name": "Посилання на альтернативу",
+    "text": {
+      "cyrillic": "Вас вітає {STORE_NAME}.\n\nНадсилаємо посилання на альтернативу:\n{ALT_LIST}",
+      "latin": "Vas vitaie {STORE_NAME}.\n\nNadsylaiemo posylannia na alternatyvu:\n{ALT_LIST}",
+      "haveAltList": true
+    }
+  },
+  {
     "name": "Посилання на оплату",
     "text": {
       "cyrillic": "Вас вітає {STORE_NAME}.\n\nНадсилаємо посилання на оплату замовлення №{ORDER_NUMBER}:\n{PAYMENT_LINK}",
