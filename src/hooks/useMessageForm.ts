@@ -92,7 +92,7 @@ export const useMessageForm = (message: Message): FormState => {
   };
 
   const resetFormData = () => {
-    setFormData(INITIAL_FORM_STATE);
+    setFormData({ ...INITIAL_FORM_STATE });
   };
 
   useEffect(() => {
