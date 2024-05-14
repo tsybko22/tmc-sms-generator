@@ -87,8 +87,8 @@ const EditorForm = ({ message }: EditorFormProps) => {
           {text.haveAltList && (
             <AltListField
               value={formData.altList}
-              onChange={(evt) => {
-                setFormData({ ...formData, altList: evt.target.value });
+              onChange={(altList) => {
+                setFormData({ ...formData, altList });
               }}
             />
           )}

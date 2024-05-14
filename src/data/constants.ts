@@ -15,7 +15,7 @@ export const INITIAL_FORM_STATE: FormFields = {
   needToRefund: false,
   paymentLink: '',
   productList: '',
-  altList: '',
+  altList: [''],
 };
 
 export const SELECT_OPTIONS: FormOption[] = [

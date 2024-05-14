@@ -12,7 +12,7 @@ export interface FormFields {
   needToRefund: boolean;
   paymentLink: string;
   productList: string;
-  altList: string;
+  altList: string[];
 }
 
 type FormState = [
@@ -73,7 +73,7 @@ export const useMessageForm = (message: Message): FormState => {
         transliterateUkrToEng(formData.productList.replace(/\n/g, ', '))
       );
     }
-    if (formData.altList) {
+    if (formData.altList.length !== 0) {
       const shortenedUrls = await shortenUrlList(formData.altList);
 
       editedCyrillic = editMessage(editedCyrillic, '{ALT_LIST}', shortenedUrls);

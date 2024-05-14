@@ -1,45 +1,85 @@
-import { type ComponentPropsWithoutRef } from 'react';
-
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
+import { isValidUrl } from '@/utils';
 
-import { Info } from 'lucide-react';
+import { Plus, Trash2 } from 'lucide-react';
+import { useState } from 'react';
 
-interface AltListFieldProps
-  extends Pick<ComponentPropsWithoutRef<'textarea'>, 'value' | 'onChange'> {}
+interface AltListFieldProps {
+  value: string[];
+  onChange: (value: string[]) => void;
+}
 
-const AltListField = ({ value, onChange }: AltListFieldProps) => (
-  <div className='grid w-full gap-1.5'>
-    <div className='flex items-center gap-1.5'>
+const AltListField = ({ value, onChange }: AltListFieldProps) => {
+  const [inputs, setInputs] = useState<string[]>(['']);
+  const [nextInputIndex, setNextInputIndex] = useState<number>(1);
+
+  const handleInputChange = (index: number, newValue: string) => {
+    const newInputs = [...inputs];
+
+    newInputs[index] = newValue;
+    setInputs(newInputs);
+
+    if (isValidUrl(newValue)) {
+      onChange(newInputs);
+    }
+  };
+
+  const handleAddInput = () => {
+    setInputs([...inputs, '']);
+    setNextInputIndex(nextInputIndex + 1);
+  };
+
+  const handleRemoveInput = (index: number) => {
+    const newInputs = inputs.filter((_, i) => i !== index);
+    setInputs(newInputs);
+
+    const newValueList = value.filter((_, i) => i !== index);
+    onChange(newValueList);
+
+    setNextInputIndex(nextInputIndex - 1);
+
+    if (newInputs.length === 0) {
+      setInputs(['']);
+      setNextInputIndex(1);
+    }
+  };
+
+  return (
+    <div className='grid w-full gap-1.5'>
       <Label htmlFor='product-list'>Список посилань на альтернативи</Label>
-      <TooltipProvider delayDuration={150}>
-        <Tooltip>
-          <TooltipTrigger>
-            <Info className='h-5 w-5 opacity-40' />
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>
-              Додавайте посилання <strong>через кому</strong>, <br />
-              щоб скорочення посилань відпрацювало коректно!
-            </p>
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
+      <div className='space-y-4 text-center'>
+        {inputs.map((inputValue, index) => (
+          <div key={index} className='flex gap-3'>
+            <Input
+              placeholder='https://termincin.com/parasolka-cholovicha-840-2000903605997a/'
+              value={inputValue}
+              onChange={(evt) => {
+                handleInputChange(index, evt.target.value);
+              }}
+              autoFocus={index === nextInputIndex - 1}
+              disabled={isValidUrl(inputs[index])}
+            />
+
+            <Button
+              size='icon'
+              variant='ghost'
+              className='w-5 text-red-500 hover:scale-110 hover:bg-transparent hover:text-red-600'
+              onClick={() => {
+                handleRemoveInput(index);
+              }}
+            >
+              <Trash2 />
+            </Button>
+          </div>
+        ))}
+        <Button size='icon' onClick={handleAddInput}>
+          <Plus />
+        </Button>
+      </div>
     </div>
-    <Textarea
-      id='product-list'
-      className='min-h-[120px] resize-none'
-      placeholder='https://termincin.com/parasolka-cholovicha-840-2000903605997a/,&#10;https://termincin.com/krosivky-cholovichi-gipanis-vs-991-41-chornyi-2000990521002d/,&#10;https://termincin.com/miach-voleibolnyi-meida-m500-14-rozhevyi-2002011531427/'
-      value={value}
-      onChange={onChange}
-    />
-  </div>
-);
+  );
+};
 
 export default AltListField;

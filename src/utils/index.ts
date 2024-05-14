@@ -109,6 +109,13 @@ export const transliterateUkrToEng = (text: string): string => {
   return str;
 };
 
+export const isValidUrl = (url: string): boolean => {
+  const urlRegex = new RegExp(
+    '(https?:\\/\\/(?:www\\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|www\\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|https?:\\/\\/(?:www\\.|(?!www))[a-zA-Z0-9]+\\.[^\\s]{2,}|www\\.[a-zA-Z0-9]+\\.[^\\s]{2,})'
+  );
+  return urlRegex.test(url);
+};
+
 export const shortenUrl = async (longUrl: string): Promise<string> => {
   const apiUrl = `https://is.gd/create.php?format=json&url=${encodeURIComponent(longUrl)}`;
 
@@ -126,11 +133,12 @@ export const shortenUrl = async (longUrl: string): Promise<string> => {
   }
 };
 
-export const shortenUrlList = async (urlList: string): Promise<string> => {
-  const urls = urlList.split(',');
+export const shortenUrlList = async (urlList: string[]): Promise<string> => {
   const shortUrls: string[] = [];
 
-  for (const url of urls) {
+  for (const url of urlList) {
+    if (!isValidUrl(url)) continue;
+
     try {
       const shortUrl = await shortenUrl(url.trim());
       shortUrls.push(shortUrl);
