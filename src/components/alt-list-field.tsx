@@ -54,7 +54,7 @@ const AltListField = ({ value, onChange }: AltListFieldProps) => {
         {inputs.map((inputValue, index) => (
           <div key={index} className='flex gap-3'>
             <Input
-              placeholder='https://termincin.com/parasolka-cholovicha-840-2000903605997a/'
+              placeholder='Посилання на альтернативу'
               value={inputValue}
               onChange={(evt) => {
                 handleInputChange(index, evt.target.value);
