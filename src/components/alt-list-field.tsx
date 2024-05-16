@@ -8,11 +8,10 @@ import { Label } from '@/components/ui/label';
 import { Plus, Trash2 } from 'lucide-react';
 
 interface AltListFieldProps {
-  value: string[];
   onChange: (value: string[]) => void;
 }
 
-const AltListField = ({ value, onChange }: AltListFieldProps) => {
+const AltListField = ({ onChange }: AltListFieldProps) => {
   const [inputs, setInputs] = useState<string[]>(['']);
   const [nextInputIndex, setNextInputIndex] = useState<number>(1);
 
@@ -35,10 +34,7 @@ const AltListField = ({ value, onChange }: AltListFieldProps) => {
   const handleRemoveInput = (index: number) => {
     const newInputs = inputs.filter((_, i) => i !== index);
     setInputs(newInputs);
-
-    const newValueList = value.filter((_, i) => i !== index);
-    onChange(newValueList);
-
+    onChange(newInputs);
     setNextInputIndex(nextInputIndex - 1);
 
     if (newInputs.length === 0) {
