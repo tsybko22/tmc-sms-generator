@@ -65,12 +65,12 @@ export const useMessageForm = (message: Message): FormState => {
       editedCyrillic = editMessage(
         editedCyrillic,
         '{PRODUCT_LIST}',
-        formData.productList.replace(/\n/g, ', ')
+        formData.productList
       );
       editedLatin = editMessage(
         editedLatin,
         '{PRODUCT_LIST}',
-        transliterateUkrToEng(formData.productList.replace(/\n/g, ', '))
+        transliterateUkrToEng(formData.productList)
       );
     }
     if (formData.altList.length !== 0) {

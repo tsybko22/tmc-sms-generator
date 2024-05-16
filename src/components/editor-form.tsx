@@ -78,15 +78,13 @@ const EditorForm = ({ message }: EditorFormProps) => {
           )}
           {text.haveProductList && (
             <ProductListField
-              value={formData.productList}
-              onChange={(evt) => {
-                setFormData({ ...formData, productList: evt.target.value });
+              onChange={(productList) => {
+                setFormData({ ...formData, productList });
               }}
             />
           )}
           {text.haveAltList && (
             <AltListField
-              value={formData.altList}
               onChange={(altList) => {
                 setFormData({ ...formData, altList });
               }}

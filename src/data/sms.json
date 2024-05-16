@@ -42,8 +42,8 @@
   {
     "name": "Немає окремого товару в наявності",
     "text": {
-      "cyrillic": "Вас турбує {STORE_NAME} стосовно замовлення №{ORDER_NUMBER}. На жаль, немає в наявності деяких товарів.\n\nА саме:\n{PRODUCT_LIST}\n\nВсе інше з Вашого замовлення буде надіслано.\n\n{REFUND_TEXT}Перепрошуємо за незручності, гарного дня!",
-      "latin": "Vas turbuie {STORE_NAME} stosovno zamovlennia №{ORDER_NUMBER}. Na zhal, nemaie v naiavnosti deiakykh tovariv.\n\nA same:\n{PRODUCT_LIST}\n\nVse inshe z Vashoho zamovlennia bude nadislano.\n\n{REFUND_TEXT}Pereproshuiemo za nezruchnosti, harnoho dnia!",
+      "cyrillic": "Вас турбує {STORE_NAME} стосовно замовлення №{ORDER_NUMBER}. На жаль, немає в наявності деяких товарів.\n\nА саме:\n{PRODUCT_LIST}\n\nВсе інше з Вашого замовлення буде зібрано.\n\n{REFUND_TEXT}Перепрошуємо за незручності, гарного дня!",
+      "latin": "Vas turbuie {STORE_NAME} stosovno zamovlennia №{ORDER_NUMBER}. Na zhal, nemaie v naiavnosti deiakykh tovariv.\n\nA same:\n{PRODUCT_LIST}\n\nVse inshe z Vashoho zamovlennia bude zibrano.\n\n{REFUND_TEXT}Pereproshuiemo za nezruchnosti, harnoho dnia!",
       "possibleRefund": true,
       "haveOrderNumber": true,
       "haveProductList": true
