@@ -51,7 +51,7 @@ const Preview = () => {
   };
 
   return (
-    <section className='flex flex-col items-center bg-neutral-200 p-5 dark:bg-neutral-800 lg:min-h-[calc(100vh-96px)] lg:justify-center'>
+    <section className='flex flex-col items-center bg-neutral-200 p-5 dark:bg-neutral-700/70 lg:min-h-[calc(100vh-96px)] lg:justify-center'>
       <div className='w-full max-w-[600px]'>
         <div className='flex justify-between p-1'>
           <h3 className='self-center text-base font-medium lg:text-lg'>Повідомлення</h3>
@@ -108,7 +108,7 @@ const Preview = () => {
         </div>
         <TextBox className='mb-4'>{formattedMessage[alphabet]}</TextBox>
         <Button
-          className={`min-w-[150px] ${isCopied ? 'bg-green-600 hover:bg-green-600 dark:bg-green-500 dark:hover:bg-green-500' : ''}`}
+          className={`min-w-[150px] ${isCopied ? '0 bg-green-600 hover:bg-green-600 dark:text-neutral-50' : 'dark:bg-neutral-950 dark:text-neutral-50 dark:hover:bg-neutral-900/95'}`}
           onClick={() => {
             handleCopy(formattedMessage.latin);
           }}
