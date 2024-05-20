@@ -33,7 +33,7 @@ const Editor = () => {
   }, [currentMessage, resetMessage, setMessage]);
 
   return (
-    <section className='custom-scrollbar flex flex-col items-center bg-white p-5 lg:max-h-[calc(100vh-96px)] lg:items-start lg:overflow-y-scroll lg:p-10'>
+    <section className='custom-scrollbar flex flex-col items-center bg-background p-5 lg:max-h-[calc(100vh-96px)] lg:items-start lg:overflow-y-scroll lg:p-10'>
       <h2 className='text-2xl font-semibold tracking-tight md:text-3xl lg:text-4xl'>
         Конструктор
       </h2>
