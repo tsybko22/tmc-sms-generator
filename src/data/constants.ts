@@ -29,4 +29,5 @@ export const SELECT_OPTIONS: FormOption[] = [
   { value: 'Allo', label: 'Алло' },
   { value: 'Epicentr', label: 'Епіцентр' },
   { value: 'Leboutique', label: 'Leboutique' },
+  { value: 'Intertop', label: 'Intertop' },
 ];
