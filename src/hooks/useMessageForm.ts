@@ -26,69 +26,45 @@ export const useMessageForm = (message: Message): FormState => {
   const { setMessage } = useMessageStore();
 
   const handleFormChange = async () => {
-    let editedCyrillic = text.cyrillic;
-    let editedLatin = text.latin;
+    let { cyrillic, latin } = text;
+    const { storeName, orderNumber, needToRefund, paymentLink, productList, altList } =
+      formData;
 
-    if (formData.storeName) {
-      editedCyrillic = editMessage(editedCyrillic, '{STORE_NAME}', formData.storeName);
-      editedLatin = editMessage(editedLatin, '{STORE_NAME}', formData.storeName);
-    }
-    if (formData.orderNumber) {
-      editedCyrillic = editMessage(
-        editedCyrillic,
-        '{ORDER_NUMBER}',
-        formData.orderNumber
-      );
-      editedLatin = editMessage(editedLatin, '{ORDER_NUMBER}', formData.orderNumber);
-    }
-    if (formData.needToRefund) {
-      editedCyrillic = editMessage(
-        editedCyrillic,
-        '{REFUND_TEXT}',
-        'Кошти повернуться на Вашу картку протягом доби. '
-      );
-      editedLatin = editMessage(
-        editedLatin,
-        '{REFUND_TEXT}',
-        'Koshty povernutsia na Vashu kartku protiahom doby. '
-      );
-    }
-    if (formData.paymentLink) {
-      editedCyrillic = editMessage(
-        editedCyrillic,
-        '{PAYMENT_LINK}',
-        formData.paymentLink
-      );
-      editedLatin = editMessage(editedLatin, '{PAYMENT_LINK}', formData.paymentLink);
-    }
-    if (formData.productList) {
-      editedCyrillic = editMessage(
-        editedCyrillic,
-        '{PRODUCT_LIST}',
-        formData.productList
-      );
-      editedLatin = editMessage(
-        editedLatin,
-        '{PRODUCT_LIST}',
-        transliterateUkrToEng(formData.productList)
-      );
-    }
-    if (formData.altList.length !== 0) {
-      const shortenedUrls = await shortenUrlList(formData.altList);
-
-      editedCyrillic = editMessage(editedCyrillic, '{ALT_LIST}', shortenedUrls);
-      editedLatin = editMessage(editedLatin, '{ALT_LIST}', shortenedUrls);
-    }
-
-    const editedMessage = {
-      ...message,
-      text: {
-        cyrillic: editedCyrillic,
-        latin: editedLatin,
-      },
+    const replacementMap: { [key: string]: string } = {
+      '{STORE_NAME}': storeName,
+      '{ORDER_NUMBER}': orderNumber,
+      '{REFUND_TEXT}': needToRefund
+        ? 'Кошти повернуться на Вашу картку протягом доби. '
+        : '',
+      '{PAYMENT_LINK}': paymentLink,
+      '{PRODUCT_LIST}': productList,
     };
 
-    setMessage(editedMessage);
+    for (const placeholder in replacementMap) {
+      const value = replacementMap[placeholder];
+
+      if (value) {
+        const latinValue =
+          placeholder === '{PRODUCT_LIST}' ? transliterateUkrToEng(value) : value;
+
+        cyrillic = editMessage(cyrillic, placeholder, value);
+        latin = editMessage(latin, placeholder, latinValue);
+      }
+    }
+
+    if (altList.length !== 0) {
+      const shortenedUrls = await shortenUrlList(altList);
+      cyrillic = editMessage(cyrillic, '{ALT_LIST}', shortenedUrls);
+      latin = editMessage(latin, '{ALT_LIST}', shortenedUrls);
+    }
+
+    setMessage({
+      ...message,
+      text: {
+        cyrillic,
+        latin,
+      },
+    });
   };
 
   const resetFormData = () => {
