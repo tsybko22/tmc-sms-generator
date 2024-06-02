@@ -18,7 +18,7 @@ interface EditorFormProps {
 const EditorForm = ({ message }: EditorFormProps) => {
   const { text } = message;
   const [formData, setFormData] = useMessageForm(message);
-  const textHasBooleanValue = Object.values(text).includes(true);
+  const hasAdditionalFields = Object.values(text).includes(true);
 
   return (
     <form
@@ -39,35 +39,33 @@ const EditorForm = ({ message }: EditorFormProps) => {
           }}
         />
       </fieldset>
-      {textHasBooleanValue ? (
+      {hasAdditionalFields ? (
         <fieldset className='space-y-5'>
           <legend className='flex items-center gap-2 text-base leading-7 lg:text-lg'>
             <img className='h-7 w-7' src={stepThreeIcon} alt='Зображення цифри 3' />
             Додаткові налаштування:
           </legend>
-          {(text.haveOrderNumber || text.possibleRefund) && (
-            <div className='flex gap-10'>
-              {text.haveOrderNumber && (
-                <OrderNumberField
-                  value={formData.orderNumber}
-                  onChange={(evt) => {
-                    setFormData({ ...formData, orderNumber: evt.target.value });
-                  }}
-                />
-              )}
-              {text.possibleRefund && (
-                <RefundField
-                  checked={formData.needToRefund}
-                  onCheckedChange={() => {
-                    setFormData({
-                      ...formData,
-                      needToRefund: !formData.needToRefund,
-                    });
-                  }}
-                />
-              )}
-            </div>
-          )}
+          <div className='flex gap-10'>
+            {text.haveOrderNumber && (
+              <OrderNumberField
+                value={formData.orderNumber}
+                onChange={(evt) => {
+                  setFormData({ ...formData, orderNumber: evt.target.value });
+                }}
+              />
+            )}
+            {text.possibleRefund && (
+              <RefundField
+                checked={formData.needToRefund}
+                onCheckedChange={() => {
+                  setFormData({
+                    ...formData,
+                    needToRefund: !formData.needToRefund,
+                  });
+                }}
+              />
+            )}
+          </div>
           {text.needToPay && (
             <PaymentLinkField
               value={formData.paymentLink}
