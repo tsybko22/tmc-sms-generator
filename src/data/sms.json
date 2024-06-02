@@ -14,6 +14,13 @@
     }
   },
   {
+    "name": "Вибачення з промокодом",
+    "text": {
+      "cyrillic": "Вас вітає {STORE_NAME}.\n\nНам дуже прикро за незручності, які виникли з Вашим замовленням. Щоб зробити цей неприємний момент трохи менш прикрим, ми надсилаємо Вам промокод на знижку у розмірі 10%. Введіть код \"tmcwow\" при оформленні наступного замовлення та скористайтеся знижкою.",
+      "latin": "Vas vitaie {STORE_NAME}.\n\nNam duzhe prykro za nezruchnosti, yaki vynykly z Vashym zamovlenniam. Shchob zrobyty tsei nepryiemnyi moment trokhy mensh prykrym, my nadsylaiemo Vam promokod na znyzhku u rozmiri 10%. Vvedit kod \"tmcwow\" pry oformlenni nastupnoho zamovlennia ta skorystaitesia znyzhkoiu."
+    }
+  },
+  {
     "name": "Посилання на альтернативу",
     "text": {
       "cyrillic": "Вас вітає {STORE_NAME}.\n\nНадсилаємо посилання на альтернативу:\n{ALT_LIST}",
