@@ -4,8 +4,14 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
-import { Plus, Trash2 } from 'lucide-react';
+import { Info, Plus, Trash2 } from 'lucide-react';
 
 interface AltListFieldProps {
   onChange: (value: string[]) => void;
@@ -45,7 +51,31 @@ const AltListField = ({ onChange }: AltListFieldProps) => {
 
   return (
     <div className='grid w-full gap-1.5'>
-      <Label htmlFor='product-list'>Список посилань на альтернативи</Label>
+      <div className='flex items-center gap-1.5'>
+        <Label htmlFor='product-list'>Список посилань на альтернативи</Label>
+        <TooltipProvider delayDuration={150}>
+          <Tooltip>
+            <TooltipTrigger>
+              <Info className='h-5 w-5 opacity-40' />
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>
+                Також можна вставляти посилання на фото.
+                <br />
+                Ось найкращий сервіс для цього:{' '}
+                <a
+                  className='text-blue-500'
+                  href='https://imgur.com/upload'
+                  target='_blank'
+                  rel='noreferrer'
+                >
+                  посилання
+                </a>
+              </p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      </div>
       <div className='space-y-4 text-center'>
         {inputs.map((inputValue, index) => (
           <div key={index} className='flex gap-3'>

@@ -42,14 +42,20 @@ export const useMessageForm = (message: Message): FormState => {
       '{STORE_NAME}': storeName,
       '{ORDER_NUMBER}': orderNumber,
       '{REFUND_TEXT}': needToRefund
-        ? 'Кошти повернуться на Вашу картку протягом доби. '
+        ? 'Кошти повернуться на Вашу картку протягом доби.\n'
         : '',
       '{CALLBACK_TEXT}': requestToCallback
-        ? 'Після прийняття рішення, будь ласка, зателефонуйте для підтвердження на один з цих номерів: +380664818686, +380675156127.'
+        ? '\n\nПісля прийняття рішення, будь ласка, зателефонуйте для підтвердження на один з цих номерів: +380664818686, +380675156127.\n'
         : '',
       '{PAYMENT_LINK}': paymentLink,
       '{PRODUCT_LIST}': productList,
     };
+
+    const transliterateUkrToEngList = [
+      '{PRODUCT_LIST}',
+      '{REFUND_TEXT}',
+      '{CALLBACK_TEXT}',
+    ];
 
     for (const placeholder in replacementMap) {
       const value = replacementMap[placeholder];
@@ -57,11 +63,10 @@ export const useMessageForm = (message: Message): FormState => {
       if (value) {
         let latinValue = value;
 
-        if (placeholder === '{PRODUCT_LIST}') {
-          latinValue = transliterateUkrToEng(value);
-        }
-        if (placeholder === '{CALLBACK_TEXT}' || placeholder === '{REFUND_TEXT}') {
-          latinValue = transliterateUkrToEng(value) + '\n';
+        for (const item of transliterateUkrToEngList) {
+          if (placeholder === item) {
+            latinValue = transliterateUkrToEng(value);
+          }
         }
 
         cyrillic = editMessage(cyrillic, placeholder, value);

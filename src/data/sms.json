@@ -23,8 +23,8 @@
   {
     "name": "Посилання на альтернативу",
     "text": {
-      "cyrillic": "Вас вітає {STORE_NAME}.\n\nНадсилаємо посилання на альтернативу по замовленню №{ORDER_NUMBER}:\n{ALT_LIST}\n{CALLBACK_TEXT}",
-      "latin": "Vas vitaie {STORE_NAME}.\n\nNadsylaiemo posylannia na alternatyvu po zamovlenniu №{ORDER_NUMBER}:\n{ALT_LIST}\n{CALLBACK_TEXT}",
+      "cyrillic": "Вас вітає {STORE_NAME}.\n\nНадсилаємо посилання на альтернативу по замовленню №{ORDER_NUMBER}:\n{ALT_LIST}{CALLBACK_TEXT}",
+      "latin": "Vas vitaie {STORE_NAME}.\n\nNadsylaiemo posylannia na alternatyvu po zamovlenniu №{ORDER_NUMBER}:\n{ALT_LIST}{CALLBACK_TEXT}",
       "haveOrderNumber": true,
       "haveAltList": true,
       "requestToCallback": true
