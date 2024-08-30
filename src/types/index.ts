@@ -7,6 +7,7 @@ export interface Text {
   cyrillic: string;
   latin: string;
   possibleRefund?: boolean;
+  requestToCallback?: boolean;
   haveOrderNumber?: boolean;
   needToPay?: boolean;
   haveProductList?: boolean;

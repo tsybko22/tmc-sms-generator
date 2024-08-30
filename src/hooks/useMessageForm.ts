@@ -10,6 +10,7 @@ export interface FormFields {
   storeName: string;
   orderNumber: string;
   needToRefund: boolean;
+  requestToCallback: boolean;
   paymentLink: string;
   productList: string;
   altList: string[];
@@ -27,14 +28,24 @@ export const useMessageForm = (message: Message): FormState => {
 
   const handleFormChange = async () => {
     let { cyrillic, latin } = text;
-    const { storeName, orderNumber, needToRefund, paymentLink, productList, altList } =
-      formData;
+    const {
+      storeName,
+      orderNumber,
+      needToRefund,
+      requestToCallback,
+      paymentLink,
+      productList,
+      altList,
+    } = formData;
 
     const replacementMap: { [key: string]: string } = {
       '{STORE_NAME}': storeName,
       '{ORDER_NUMBER}': orderNumber,
       '{REFUND_TEXT}': needToRefund
         ? 'Кошти повернуться на Вашу картку протягом доби. '
+        : '',
+      '{CALLBACK_TEXT}': requestToCallback
+        ? 'Після прийняття рішення, будь ласка, зателефонуйте для підтвердження на один з цих номерів: +380664818686, +380675156127.'
         : '',
       '{PAYMENT_LINK}': paymentLink,
       '{PRODUCT_LIST}': productList,
@@ -49,7 +60,7 @@ export const useMessageForm = (message: Message): FormState => {
         if (placeholder === '{PRODUCT_LIST}') {
           latinValue = transliterateUkrToEng(value);
         }
-        if (placeholder === '{REFUND_TEXT}') {
+        if (placeholder === '{CALLBACK_TEXT}' || placeholder === '{REFUND_TEXT}') {
           latinValue = transliterateUkrToEng(value) + '\n';
         }
 

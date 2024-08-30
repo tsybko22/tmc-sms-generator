@@ -13,6 +13,7 @@ export const INITIAL_FORM_STATE: FormFields = {
   storeName: 'termincin.com',
   orderNumber: '',
   needToRefund: false,
+  requestToCallback: false,
   paymentLink: '',
   productList: '',
   altList: [''],

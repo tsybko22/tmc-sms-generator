@@ -2,6 +2,7 @@ import { useMessageForm } from '@/hooks/useMessageForm';
 import { type Message } from '@/types';
 
 import AltListField from '@/components/alt-list-field';
+import CallbackField from '@/components/callback-field';
 import OrderNumberField from '@/components/order-number-field';
 import PaymentLinkField from '@/components/payment-link-field';
 import ProductListField from '@/components/product-list-field';
@@ -65,7 +66,19 @@ const EditorForm = ({ message }: EditorFormProps) => {
                 }}
               />
             )}
+            {text.requestToCallback && (
+              <CallbackField
+                checked={formData.requestToCallback}
+                onCheckedChange={() => {
+                  setFormData({
+                    ...formData,
+                    requestToCallback: !formData.requestToCallback,
+                  });
+                }}
+              />
+            )}
           </div>
+
           {text.needToPay && (
             <PaymentLinkField
               value={formData.paymentLink}
