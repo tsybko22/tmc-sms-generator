@@ -13,6 +13,9 @@ export const editMessage = (
 ): string => message.replace(new RegExp(searchValue, 'g'), replaceValue);
 
 export const transliterateUkrToEng = (text: string): string => {
+  const TEMP_NEWLINE = 'TEMP_NEWLINE_PLACEHOLDER';
+  let str = text.replace(/\n/g, TEMP_NEWLINE);
+
   const TRULESP: { [key: string]: string } = { ЗГ: 'ZgH', Зг: 'Zgh', зг: 'zgh' };
   const TRULESB: { [key: string]: string } = {
     Є: 'Ye',
@@ -96,7 +99,6 @@ export const transliterateUkrToEng = (text: string): string => {
     "'": '',
   };
 
-  let str = text.trim();
   str = str.replace(/ЗГ|Зг|зг/g, (x) => TRULESP[x]);
   str = str.replace(
     /([\s-/.;,:])([ЄЇЙЮЯєїйюя])/g,
@@ -106,7 +108,8 @@ export const transliterateUkrToEng = (text: string): string => {
     /[АБВГЗГЗгҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ’'абвгзгґдеєжзиіїйклмнопрстуфхцчшщьюя]/g,
     (x) => TRULES[x]
   );
-  return str;
+
+  return str.replace(new RegExp(TEMP_NEWLINE, 'g'), '\n');
 };
 
 export const isValidUrl = (url: string): boolean => {
