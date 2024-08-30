@@ -44,8 +44,14 @@ export const useMessageForm = (message: Message): FormState => {
       const value = replacementMap[placeholder];
 
       if (value) {
-        const latinValue =
-          placeholder === '{PRODUCT_LIST}' ? transliterateUkrToEng(value) : value;
+        let latinValue = value;
+
+        if (placeholder === '{PRODUCT_LIST}') {
+          latinValue = transliterateUkrToEng(value);
+        }
+        if (placeholder === '{REFUND_TEXT}') {
+          latinValue = transliterateUkrToEng(value) + '\n';
+        }
 
         cyrillic = editMessage(cyrillic, placeholder, value);
         latin = editMessage(latin, placeholder, latinValue);
