@@ -46,7 +46,7 @@ const EditorForm = ({ message }: EditorFormProps) => {
             <img className='h-7 w-7' src={stepThreeIcon} alt='Зображення цифри 3' />
             Додаткові налаштування:
           </legend>
-          <div className='flex gap-10'>
+          <div className='relative'>
             {text.haveOrderNumber && (
               <OrderNumberField
                 value={formData.orderNumber}

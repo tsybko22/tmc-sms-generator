@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label';
 interface CallbackFieldProps extends Pick<CheckboxProps, 'checked' | 'onCheckedChange'> {}
 
 const CallbackField = ({ checked, onCheckedChange }: CallbackFieldProps) => (
-  <div className='relative bottom-[8px] flex items-center space-x-2 self-end'>
+  <div className='absolute left-[190px] top-[27px] flex items-center space-x-2 self-end'>
     <Checkbox id='refund' checked={checked} onCheckedChange={onCheckedChange} />
     <Label htmlFor='refund' className='text-base font-normal'>
       Треба щоб клієнт перетелефонував?
