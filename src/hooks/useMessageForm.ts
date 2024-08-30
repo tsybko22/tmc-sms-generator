@@ -51,22 +51,20 @@ export const useMessageForm = (message: Message): FormState => {
       '{PRODUCT_LIST}': productList,
     };
 
-    const transliterateUkrToEngList = [
-      '{PRODUCT_LIST}',
-      '{REFUND_TEXT}',
-      '{CALLBACK_TEXT}',
-    ];
-
     for (const placeholder in replacementMap) {
       const value = replacementMap[placeholder];
 
       if (value) {
-        let latinValue = value;
+        let latinValue: string;
 
-        for (const item of transliterateUkrToEngList) {
-          if (placeholder === item) {
+        switch (placeholder) {
+          case '{PRODUCT_LIST}':
+          case '{REFUND_TEXT}':
+          case '{CALLBACK_TEXT}':
             latinValue = transliterateUkrToEng(value);
-          }
+            break;
+          default:
+            latinValue = value;
         }
 
         cyrillic = editMessage(cyrillic, placeholder, value);
