@@ -9,15 +9,17 @@
   {
     "name": "Повернення за наш рахунок",
     "text": {
-      "cyrillic": "Вас вітає {STORE_NAME}.\n\nВам необхідно відправити товар Новою Поштою з доставкою за наш рахунок через безготівковий розрахунок (це важливо!) на реквізити, що вказані в формі за посиланням.\n\nТакож просимо заповнити електронну форму за посиланням нижче:\nhttps://docs.google.com/forms/d/e/1FAIpQLSebmPy8aoSJtGw57YgD5klUIztsNqMmQk1Jzw8qrb_coPqxng/viewform",
-      "latin": "Vas vitaie {STORE_NAME}.\n\nVam neobkhidno vidpravyty tovar Novoiu Poshtoiu z dostavkoiu za nash rakhunok cherez bezghotivkovyi rozrakhunok (tse vazhlyvo!) na rekvizyty, shcho vkazani v formi za posylanniam.\n\nTakozh prokhannia zapovnyty elektronnu formu za posylanniam nyzhche:\nhttps://docs.google.com/forms/d/e/1FAIpQLSebmPy8aoSJtGw57YgD5klUIztsNqMmQk1Jzw8qrb_coPqxng/viewform"
+      "cyrillic": "Вам необхідно відправити товар Новою Поштою з доставкою за наш рахунок через безготівковий розрахунок (це важливо!) на реквізити, що вказані в формі за посиланням.\n\nТакож просимо заповнити електронну форму за посиланням нижче:\nhttps://docs.google.com/forms/d/e/1FAIpQLSebmPy8aoSJtGw57YgD5klUIztsNqMmQk1Jzw8qrb_coPqxng/viewform",
+      "latin": "Vam neobkhidno vidpravyty tovar Novoiu Poshtoiu z dostavkoiu za nash rakhunok cherez bezghotivkovyi rozrakhunok (tse vazhlyvo!) na rekvizyty, shcho vkazani v formi za posylanniam.\n\nTakozh prokhannia zapovnyty elektronnu formu za posylanniam nyzhche:\nhttps://docs.google.com/forms/d/e/1FAIpQLSebmPy8aoSJtGw57YgD5klUIztsNqMmQk1Jzw8qrb_coPqxng/viewform",
+      "haveStoreName": false
     }
   },
   {
     "name": "Вибачення з промокодом",
     "text": {
       "cyrillic": "Вас вітає {STORE_NAME}.\n\nНам дуже прикро за незручності, які виникли з Вашим замовленням. Щоб зробити цей неприємний момент трохи менш прикрим, ми надсилаємо Вам промокод на знижку у розмірі 10%. Введіть код \"tmcwow\" при оформленні наступного замовлення та скористайтеся знижкою.",
-      "latin": "Vas vitaie {STORE_NAME}.\n\nNam duzhe prykro za nezruchnosti, yaki vynykly z Vashym zamovlenniam. Shchob zrobyty tsei nepryiemnyi moment trokhy mensh prykrym, my nadsylaiemo Vam promokod na znyzhku u rozmiri 10%. Vvedit kod \"tmcwow\" pry oformlenni nastupnoho zamovlennia ta skorystaitesia znyzhkoiu."
+      "latin": "Vas vitaie {STORE_NAME}.\n\nNam duzhe prykro za nezruchnosti, yaki vynykly z Vashym zamovlenniam. Shchob zrobyty tsei nepryiemnyi moment trokhy mensh prykrym, my nadsylaiemo Vam promokod na znyzhku u rozmiri 10%. Vvedit kod \"tmcwow\" pry oformlenni nastupnoho zamovlennia ta skorystaitesia znyzhkoiu.",
+      "haveStoreName": true
     }
   },
   {
@@ -27,7 +29,8 @@
       "latin": "Vas vitaie {STORE_NAME}.\n\nNadsylaiemo posylannia na alternatyvu po zamovlenniu №{ORDER_NUMBER}:\n{ALT_LIST}{CALLBACK_TEXT}",
       "haveOrderNumber": true,
       "haveAltList": true,
-      "requestToCallback": true
+      "requestToCallback": true,
+      "haveStoreName": true
     }
   },
   {
@@ -36,7 +39,8 @@
       "cyrillic": "Вас вітає {STORE_NAME}.\n\nНадсилаємо посилання на оплату замовлення №{ORDER_NUMBER}:\n{PAYMENT_LINK}",
       "latin": "Vas vitaie {STORE_NAME}.\n\nNadsylaiemo posylannia na oplatu zamovlenniа №{ORDER_NUMBER}:\n{PAYMENT_LINK}",
       "haveOrderNumber": true,
-      "needToPay": true
+      "needToPay": true,
+      "haveStoreName": true
     }
   },
   {
@@ -45,7 +49,8 @@
       "cyrillic": "Вас вітає {STORE_NAME}.\n\nНажаль не отримали оплату по Вашому замовленню №{ORDER_NUMBER}.\n\nПосилання для оплати:\n{PAYMENT_LINK}",
       "latin": "Vas vitaie {STORE_NAME}.\n\nNazhal ne otrymaly oplatu po Vashomu zamovlenniu №{ORDER_NUMBER}.\n\nPosylannia dlia oplaty:\n{PAYMENT_LINK}",
       "haveOrderNumber": true,
-      "needToPay": true
+      "needToPay": true,
+      "haveStoreName": true
     }
   },
   {
@@ -55,7 +60,8 @@
       "latin": "Vas turbuie {STORE_NAME} stosovno zamovlennia №{ORDER_NUMBER}. Na zhal, nemaie v naiavnosti deiakykh tovariv.\n\nA same:\n{PRODUCT_LIST}\n\nVse inshe z Vashoho zamovlennia bude zibrano.\n\n{REFUND_TEXT}Pereproshuiemo za nezruchnosti, harnoho dnia!",
       "possibleRefund": true,
       "haveOrderNumber": true,
-      "haveProductList": true
+      "haveProductList": true,
+      "haveStoreName": true
     }
   },
   {
@@ -64,7 +70,8 @@
       "cyrillic": "Вас турбує {STORE_NAME} стосовно замовлення №{ORDER_NUMBER}.\n\nНа жаль, обраного Вами товару немає в наявності, тому ми змушені скасувати замовлення.\n\n{REFUND_TEXT}Перепрошуємо за незручності, гарного дня!",
       "latin": "Vas turbuie {STORE_NAME} stosovno zamovlennia №{ORDER_NUMBER}.\n\nNa zhal, obranoho Vamy tovaru nemaie v naiavnosti, tomu my zmusheni skasuvaty zamovlennia.\n\n{REFUND_TEXT}Pereproshuiemo za nezruchnosti, harnoho dnia!",
       "possibleRefund": true,
-      "haveOrderNumber": true
+      "haveOrderNumber": true,
+      "haveStoreName": true
     }
   },
   {
@@ -73,7 +80,8 @@
       "cyrillic": "Вас турбує {STORE_NAME} стосовно замовлення №{ORDER_NUMBER}.\n\nНа жаль, не змогли Вам додзвонитися для уточнення по замовленню, тому змушені його скасувати.\n\n{REFUND_TEXT}Перепрошуємо за незручності, гарного дня!",
       "latin": "Vas turbuie {STORE_NAME} stosovno zamovlennia №{ORDER_NUMBER}.\n\nNa zhal, ne zmohly Vam dodzvonytysia dlia utochnennia po zamovlenniu, tomu zmusheni ioho skasuvaty.\n\n{REFUND_TEXT}Pereproshuiemo za nezruchnosti, harnoho dnia!",
       "possibleRefund": true,
-      "haveOrderNumber": true
+      "haveOrderNumber": true,
+      "haveStoreName": true
     }
   },
   {
@@ -81,16 +89,18 @@
     "text": {
       "cyrillic": "Вас турбує {STORE_NAME} стосовно замовлення №{ORDER_NUMBER}.\n\nПри оформленні замовлення оплата, на жаль, не пройшла.\n\nОформіть, будь ласка, повторне замовлення в нас на сайті та спробуйте оплатити ще раз або вказати \"післяплата\".",
       "latin": "Vas turbuye {STORE_NAME} stosovno zamovlennya №{ORDER_NUMBER}.\n\nPri oformlenni zamovlennya oplata, na zhal, ne projshla.\n\nOformit, bud laska, povtorno zamovlennya v nas na sajti ta sprobujte oplatiti she raz abo vkazati \"pislyaplata\".",
-      "haveOrderNumber": true
+      "haveOrderNumber": true,
+      "haveStoreName": true
     }
   },
   {
     "name": "Немає самовивіз (скасування)",
     "text": {
-      "cyrillic": "Вас турбує {STORE_NAME} стосовно замовлення №{ORDER_NUMBER}.\n\nНа жаль, товару немає в наявності, в обраному Вами магазині, але пропонуємо Вам оформити доставку поштою зі знижкою 10% на товар за промокодом \"tmcwow\".\n\n{REFUND_TEXT}Перепрошуємо за незручності, гарного дня!",
-      "latin": "Vas turbuye {STORE_NAME} stosovno zamovlennya №{ORDER_NUMBER}.\n\nNa zhal, tovaru nemaye v nayavnosti, v obranomu Vami magazini, ale proponuyemo Vam oformiti dostavku poshtoyu zi znizhkoyu 10% na  tovar za promokodom \"tmcwow\".\n\n{REFUND_TEXT}Pereproshuiemo za nezruchnosti, harnoho dnia!",
+      "cyrillic": "Вас турбує termincin.com. стосовно замовлення №{ORDER_NUMBER}.\n\nНа жаль, товару немає в наявності, в обраному Вами магазині, але пропонуємо Вам оформити доставку поштою зі знижкою 10% на товар за промокодом \"tmcwow\".\n\n{REFUND_TEXT}Перепрошуємо за незручності, гарного дня!",
+      "latin": "Vas turbuye termincin.com.stosovno zamovlennya №{ORDER_NUMBER}.\n\nNa zhal, tovaru nemaye v nayavnosti, v obranomu Vami magazini, ale proponuyemo Vam oformiti dostavku poshtoyu zi znizhkoyu 10% na  tovar za promokodom \"tmcwow\".\n\n{REFUND_TEXT}Pereproshuiemo za nezruchnosti, harnoho dnia!",
       "possibleRefund": true,
-      "haveOrderNumber": true
+      "haveOrderNumber": true,
+      "haveStoreName": false
     }
   }
 ]

@@ -12,6 +12,7 @@ export interface Text {
   needToPay?: boolean;
   haveProductList?: boolean;
   haveAltList?: boolean;
+  haveStoreName?: boolean;
 }
 
 export interface FormOption {

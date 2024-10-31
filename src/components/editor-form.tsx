@@ -19,7 +19,9 @@ interface EditorFormProps {
 const EditorForm = ({ message }: EditorFormProps) => {
   const { text } = message;
   const [formData, setFormData] = useMessageForm(message);
-  const hasAdditionalFields = Object.values(text).includes(true);
+  const hasAdditionalFields = Object.entries(text)
+    .filter(([key]) => key !== 'haveStoreName') //exclude haveStoreName property
+    .some(([, value]) => value === true);
 
   return (
     <form
@@ -28,6 +30,7 @@ const EditorForm = ({ message }: EditorFormProps) => {
         evt.preventDefault();
       }}
     >
+      {text.haveStoreName && (
       <fieldset className='space-y-5'>
         <legend className='flex items-center gap-2 text-base leading-7 lg:text-lg'>
           <img className='h-7 w-7' src={stepTwoIcon} alt='Зображення цифри 2' />
@@ -40,6 +43,7 @@ const EditorForm = ({ message }: EditorFormProps) => {
           }}
         />
       </fieldset>
+      )}
       {hasAdditionalFields ? (
         <fieldset className='space-y-5'>
           <legend className='flex items-center gap-2 text-base leading-7 lg:text-lg'>
