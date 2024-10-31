@@ -25,7 +25,7 @@ const EditorForm = ({ message }: EditorFormProps) => {
 
   return (
     <form
-      className='my-5 w-full max-w-4xl space-y-5'
+      className='my-5 space-y-5'
       onSubmit={(evt) => {
         evt.preventDefault();
       }}
