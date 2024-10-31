@@ -25,24 +25,24 @@ const EditorForm = ({ message }: EditorFormProps) => {
 
   return (
     <form
-      className='my-5 space-y-5'
+      className='my-5 w-full max-w-4xl space-y-5'
       onSubmit={(evt) => {
         evt.preventDefault();
       }}
     >
       {text.haveStoreName && (
-      <fieldset className='space-y-5'>
-        <legend className='flex items-center gap-2 text-base leading-7 lg:text-lg'>
-          <img className='h-7 w-7' src={stepTwoIcon} alt='Зображення цифри 2' />
-          Оберіть назву магазину під виглядом якого треба відправити повідомлення:
-        </legend>
-        <StoreNameField
-          value={formData.storeName}
-          onValueChange={(value) => {
-            setFormData({ ...formData, storeName: value });
-          }}
-        />
-      </fieldset>
+        <fieldset className='space-y-5'>
+          <legend className='flex items-center gap-2 text-base leading-7 lg:text-lg'>
+            <img className='h-7 w-7' src={stepTwoIcon} alt='Зображення цифри 2' />
+            Оберіть назву магазину під виглядом якого треба відправити повідомлення:
+          </legend>
+          <StoreNameField
+            value={formData.storeName}
+            onValueChange={(value) => {
+              setFormData({ ...formData, storeName: value });
+            }}
+          />
+        </fieldset>
       )}
       {hasAdditionalFields ? (
         <fieldset className='space-y-5'>

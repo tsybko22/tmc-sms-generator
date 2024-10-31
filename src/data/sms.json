@@ -2,8 +2,17 @@
   {
     "name": "Повернення",
     "text": {
-      "cyrillic": "Вас вітає {STORE_NAME}.\n\nВам необхідно відправити товар Новою Поштою на реквізити, що вказані в формі.\n\nТакож просимо заповнити електронну форму за посиланням нижче:\nhttps://docs.google.com/forms/d/e/1FAIpQLSebmPy8aoSJtGw57YgD5klUIztsNqMmQk1Jzw8qrb_coPqxng/viewform",
-      "latin": "Vas vitaie {STORE_NAME}.\n\nVam neobkhidno vidpravyty tovar Novoiu Poshtoiu na rekvizyty, shcho vkazani v formi.\n\nTakozh prokhannia zapovnyty elektronnu formu za posylanniam nyzhche:\nhttps://docs.google.com/forms/d/e/1FAIpQLSebmPy8aoSJtGw57YgD5klUIztsNqMmQk1Jzw8qrb_coPqxng/viewform"
+      "cyrillic": "Вам необхідно відправити товар Новою Поштою на реквізити, що вказані в формі.\n\nТакож просимо заповнити електронну форму за посиланням нижче:\nhttps://docs.google.com/forms/d/e/1FAIpQLSebmPy8aoSJtGw57YgD5klUIztsNqMmQk1Jzw8qrb_coPqxng/viewform",
+      "latin": "Vam neobkhidno vidpravyty tovar Novoiu Poshtoiu na rekvizyty, shcho vkazani v formi.\n\nTakozh prokhannia zapovnyty elektronnu formu za posylanniam nyzhche:\nhttps://docs.google.com/forms/d/e/1FAIpQLSebmPy8aoSJtGw57YgD5klUIztsNqMmQk1Jzw8qrb_coPqxng/viewform",
+      "haveStoreName": false
+    }
+  },
+  {
+    "name": "Повернення Каста",
+    "text": {
+      "cyrillic": "Послуга обміну не доступна, лише повернення коштів.\nВам необхідно відправити товар Новою Поштою на реквізити, що вказані в формі.\n\nТакож просимо заповнити електронну форму за посиланням нижче (повернення за товар буде проведено Кастою, тому поля «Картка для повернення коштів» та «На який розмір обміняти» заповнювати не потрібно):\nhttps://docs.google.com/forms/d/e/1FAIpQLSebmPy8aoSJtGw57YgD5klUIztsNqMmQk1Jzw8qrb_coPqxng/viewform",
+      "latin": "Posluha obminu ne dostupna, lyshe povernennia koshtiv.\nVam neobkhidno vidpravyty tovar Novoiu Poshtoiu na rekvizyty, shcho vkazani v formi.\n\nTakozh prosymo zapovnyty elektronnu formu za posylanniam nyzhche (povernennia za tovar bude provedeno Kastoiu, tomu polia «Kartka dlia povernennia koshtiv» ta «Na iaundefinedkyi rozmir obminiaty» zapovniuvaty ne potribno):\nhttps://docs.google.com/forms/d/e/1FAIpQLSebmPy8aoSJtGw57YgD5klUIztsNqMmQk1Jzw8qrb_coPqxng/viewform",
+      "haveStoreName": false
     }
   },
   {
