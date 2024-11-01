@@ -9,8 +9,8 @@ import ProductListField from '@/components/product-list-field';
 import RefundField from '@/components/refund-field';
 import StoreNameField from '@/components/store-name-field';
 
+import settingsIcon from '@icons/settings.png';
 import stepTwoIcon from '@icons/step2.png';
-import stepThreeIcon from '@icons/step3.png';
 
 interface EditorFormProps {
   message: Message;
@@ -47,7 +47,11 @@ const EditorForm = ({ message }: EditorFormProps) => {
       {hasAdditionalFields ? (
         <fieldset className='space-y-5'>
           <legend className='flex items-center gap-2 text-base leading-7 lg:text-lg'>
-            <img className='h-7 w-7' src={stepThreeIcon} alt='Зображення цифри 3' />
+            <img
+              className='h-7 w-7'
+              src={settingsIcon}
+              alt='Зображення ключа та молота'
+            />
             Додаткові налаштування:
           </legend>
           <div className='relative'>
